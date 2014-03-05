@@ -1,0 +1,28 @@
+Info ze strony:
+
+http://code.msdn.microsoft.com/MVC4-ENTITY-FRAMEWORK-10-e15ef983
+
+Generowanie plików cs kontrolerów dla mvc z EM
+
+Operacje na konsolie NuGet-a :::
+
+Tools > Library packet > console
+
+1
+Install-package mvcscaffolding
+
+2
+Scaffold controller ClientsController –force –DBContextType “ModelContainer”
+
+3
+Scaffold controller ContactsController –force –DBContextType “ModelContainer”
+
+
+Dla 
+Scaffold controller ClientsController –force –DBContextType "ClientsController"
+
+dla CompanyCfg
+Scaffold controller StrukturaController –force –DBContextType “StrukturaContainer”
+Scaffold controller KomputerController –force –DBContextType “KomputerContainer”
+Scaffold controller UzytkownikController –force –DBContextType “UzytkownikContainer”
+Scaffold controller StrukturaController –force –DBContextType “StrukturaContainer”

@@ -1,0 +1,164 @@
+﻿@model CompanyOrg.Models.Uzytkownik
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Uzytkownik</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.imie)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.imie)
+            @Html.ValidationMessageFor(model => model.imie)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.nazwisko)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.nazwisko)
+            @Html.ValidationMessageFor(model => model.nazwisko)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.drugie_imie)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.drugie_imie)
+            @Html.ValidationMessageFor(model => model.drugie_imie)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.status)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.status)
+            @Html.ValidationMessageFor(model => model.status)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.login_AD)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.login_AD)
+            @Html.ValidationMessageFor(model => model.login_AD)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AwiZ)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AwiZ)
+            @Html.ValidationMessageFor(model => model.AwiZ)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.tel_kom)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.tel_kom)
+            @Html.ValidationMessageFor(model => model.tel_kom)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.tel_stac)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.tel_stac)
+            @Html.ValidationMessageFor(model => model.tel_stac)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.email)
+            @Html.ValidationMessageFor(model => model.email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MPK)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MPK)
+            @Html.ValidationMessageFor(model => model.MPK)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.id_jednostka_organizacyjna)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.id_jednostka_organizacyjna)
+            @Html.ValidationMessageFor(model => model.id_jednostka_organizacyjna)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.id_lokalizacji)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.id_lokalizacji)
+            @Html.ValidationMessageFor(model => model.id_lokalizacji)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.typ_kontaktu)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.typ_kontaktu)
+            @Html.ValidationMessageFor(model => model.typ_kontaktu)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.typ_dostepu)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.typ_dostepu)
+            @Html.ValidationMessageFor(model => model.typ_dostepu)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.stanowisko)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.stanowisko)
+            @Html.ValidationMessageFor(model => model.stanowisko)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.delegacja_akceptacji)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.delegacja_akceptacji)
+            @Html.ValidationMessageFor(model => model.delegacja_akceptacji)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NRE)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NRE)
+            @Html.ValidationMessageFor(model => model.NRE)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

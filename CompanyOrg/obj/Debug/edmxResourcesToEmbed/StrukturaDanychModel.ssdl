@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CompanyOrgModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="CompanyOrgModelStoreContainer">
+    <EntitySet Name="jednostka_organizacyjna" EntityType="CompanyOrgModel.Store.jednostka_organizacyjna" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="komputer" EntityType="CompanyOrgModel.Store.komputer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="lokalizacja" EntityType="CompanyOrgModel.Store.lokalizacja" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="uzytkownik" EntityType="CompanyOrgModel.Store.uzytkownik" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="jednostka_organizacyjnauzytkownik" Association="CompanyOrgModel.Store.jednostka_organizacyjnauzytkownik">
+      <End Role="jednostka_organizacyjna" EntitySet="jednostka_organizacyjna" />
+      <End Role="uzytkownik" EntitySet="uzytkownik" />
+    </AssociationSet>
+    <AssociationSet Name="lokalizacjauzytkownik" Association="CompanyOrgModel.Store.lokalizacjauzytkownik">
+      <End Role="lokalizacja" EntitySet="lokalizacja" />
+      <End Role="uzytkownik" EntitySet="uzytkownik" />
+    </AssociationSet>
+    <AssociationSet Name="komputerlokalizacja" Association="CompanyOrgModel.Store.komputerlokalizacja">
+      <End Role="komputer" EntitySet="komputer" />
+      <End Role="lokalizacja" EntitySet="lokalizacja" />
+    </AssociationSet>
+    <AssociationSet Name="komputeruzytkownik" Association="CompanyOrgModel.Store.komputeruzytkownik">
+      <End Role="komputer" EntitySet="komputer" />
+      <End Role="uzytkownik" EntitySet="uzytkownik" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="jednostka_organizacyjna">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nazwa" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="kod" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="status" Type="bit" Nullable="false" />
+    <Property Name="id_manager" Type="int" Nullable="false" />
+    <Property Name="MPK" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="id_nadrzedna" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="komputer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nazwa" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="nazwa_dns" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="numer_seryjny" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="host_name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="MPK" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="szczegoly_lokalizacji" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="nr_inwentarzowy" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="wartosc_poczatkowa" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="wartosc_netto" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="numer_ot" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="typ_komputera" Type="int" Nullable="false" />
+    <Property Name="nr_id_system_zew" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="cd_dvd" Type="bit" Nullable="true" />
+    <Property Name="karta_sieciowa" Type="bit" Nullable="true" />
+    <Property Name="adres_ip" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="zegar_cpu" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="ilosc_proc" Type="int" Nullable="true" DefaultValue="1" />
+    <Property Name="ilosc_ram" Type="int" Nullable="true" />
+    <Property Name="rozmiar_hdd" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="rozmiar_monitora" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="nazwa_monitora" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="model_procesora" Type="int" Nullable="false" />
+    <Property Name="model_komputera" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="lokalizacjaId" Type="int" Nullable="false" />
+    <Property Name="wlascicielID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="lokalizacja">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ulica" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="miasto" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="kod_pocztowy" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="pokoj" Type="nvarchar" Nullable="true" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="uzytkownik">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nazwisko" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="imie" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="NRE" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="drugie_imie" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="status" Type="bit" Nullable="false" />
+    <Property Name="login_AD" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="typ_kontaktu" Type="int" Nullable="false" />
+    <Property Name="typ_dostepu" Type="int" Nullable="false" />
+    <Property Name="stanowisko" Type="int" Nullable="true" />
+    <Property Name="AWiZ" Type="bit" Nullable="true" />
+    <Property Name="delegacja_akceptacji" Type="int" Nullable="true" />
+    <Property Name="tel_kom" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="tel_stac" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" Nullable="true" MaxLength="60" />
+    <Property Name="MPK" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="jednostka_organizacyjnaID_JO" Type="int" Nullable="false" />
+    <Property Name="lokalizacjaId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="jednostka_organizacyjnauzytkownik">
+    <End Role="jednostka_organizacyjna" Type="CompanyOrgModel.Store.jednostka_organizacyjna" Multiplicity="1" />
+    <End Role="uzytkownik" Type="CompanyOrgModel.Store.uzytkownik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jednostka_organizacyjna">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="uzytkownik">
+        <PropertyRef Name="jednostka_organizacyjnaID_JO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="lokalizacjauzytkownik">
+    <End Role="lokalizacja" Type="CompanyOrgModel.Store.lokalizacja" Multiplicity="1" />
+    <End Role="uzytkownik" Type="CompanyOrgModel.Store.uzytkownik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lokalizacja">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="uzytkownik">
+        <PropertyRef Name="lokalizacjaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="komputerlokalizacja">
+    <End Role="komputer" Type="CompanyOrgModel.Store.komputer" Multiplicity="*" />
+    <End Role="lokalizacja" Type="CompanyOrgModel.Store.lokalizacja" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="lokalizacja">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="komputer">
+        <PropertyRef Name="lokalizacjaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="komputeruzytkownik">
+    <End Role="komputer" Type="CompanyOrgModel.Store.komputer" Multiplicity="*" />
+    <End Role="uzytkownik" Type="CompanyOrgModel.Store.uzytkownik" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="uzytkownik">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="komputer">
+        <PropertyRef Name="wlascicielID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

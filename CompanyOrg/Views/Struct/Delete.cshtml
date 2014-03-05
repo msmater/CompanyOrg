@@ -1,0 +1,41 @@
+@model CompanyOrg.Models.JednostkaOrg
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>jednostka_organizacyjna</legend>
+
+    <div class="display-label">nazwa</div>
+    <div class="display-field">@Model.nazwa</div>
+
+    <div class="display-label">kod</div>
+    <div class="display-field">@Model.kod</div>
+
+    <div class="display-label">status</div>
+    <div class="display-field">@Model.status</div>
+
+    <div class="display-label">id_manager</div>
+    <div class="display-field">@Model.id_manager</div>
+
+    <div class="display-label">MPK</div>
+    <div class="display-field">@Model.MPK</div>
+
+    <div class="display-label">id_nadrzedna</div>
+    <div class="display-field">@Model.id_nadrzedna</div>
+
+    <div class="display-label">uzytkownik</div>
+    <div class="display-field">@(Model.Uzytkownicy == null ? "None" : Model.Uzytkownicy.Count.ToString())</div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+
+

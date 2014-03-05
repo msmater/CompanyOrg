@@ -1,0 +1,39 @@
+﻿@model IEnumerable<CompanyOrg.Models.Komputer>
+
+@using GridMvc.Html
+
+@{
+    ViewBag.Title = "Index Komputerów";
+}
+
+<h2>Index Komputerów</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<h1>Grid.MVC</h1>
+    <hr />
+    <div style="width:500px;">
+
+        @{
+            //if (Model != null)
+            //{
+                @Html.Grid(Model).Columns(columns => 
+                {
+                    columns.Add(c => c.nazwa).Titled("Nazwa");
+                    columns.Add(c => c.nazwa_dns).Titled("Nazwa DNS");
+                    columns.Add(c => c.adres_ip).Titled("IP");
+                    columns.Add(c => c.nr_id_system_zew).Titled("ID systemu zewnętrznego");
+                    columns.Add(c => c.szczegoly_lokalizacji).Titled("Szczegóły lokalizacji");
+                  @*
+                    columns.Add(c => @Html.ActionLink("Edit", "Edit", new {id=c.Id})).Titled("Edytuj"); //@Html.ActionLink("Edit", "Edit", new { id=c.Id })
+                    columns.Add(c => @Html.ActionLink("Details", "Details", new { id=c.Id })).Titled("Szczegóły"); //@Html.ActionLink("Edit", "Edit", new { id=c.Id })
+                    columns.Add(c => @Html.ActionLink("Delete", "Delete", new { id=c.Id })).Titled("Usuń"); //@Html.ActionLink("Edit", "Edit", new { id=c.Id 
+                  *@
+                }).WithPaging(5).Sortable(true)
+            //}
+        }
+
+</div>
+

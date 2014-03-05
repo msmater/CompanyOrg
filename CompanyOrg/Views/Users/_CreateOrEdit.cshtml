@@ -1,0 +1,36 @@
+@model CompanyOrg.Models.Uzytkownik
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.imie)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.imie)
+    @Html.ValidationMessageFor(model => model.imie)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.nazwisko)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.nazwisko)
+    @Html.ValidationMessageFor(model => model.nazwisko)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.drugie_imie)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.drugie_imie)
+    @Html.ValidationMessageFor(model => model.drugie_imie)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.email)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.email)
+    @Html.ValidationMessageFor(model => model.email)
+</div>

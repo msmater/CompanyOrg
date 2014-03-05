@@ -1,0 +1,98 @@
+@model CompanyOrg.Models.Komputer
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Komputer</legend>
+
+    <div class="display-label">nazwa_dns</div>
+    <div class="display-field">@Model.nazwa_dns</div>
+
+    <div class="display-label">nazwa</div>
+    <div class="display-field">@Model.nazwa</div>
+
+    <div class="display-label">numer_seryjny</div>
+    <div class="display-field">@Model.numer_seryjny</div>
+
+    <div class="display-label">host_name</div>
+    <div class="display-field">@Model.host_name</div>
+
+    <div class="display-label">MPK</div>
+    <div class="display-field">@Model.MPK</div>
+
+    <div class="display-label">szczegoly_lokalizacji</div>
+    <div class="display-field">@Model.szczegoly_lokalizacji</div>
+
+    <div class="display-label">nr_inwentarzowy</div>
+    <div class="display-field">@Model.nr_inwentarzowy</div>
+
+    <div class="display-label">wartosc_poczatkowa</div>
+    <div class="display-field">@Model.wartosc_poczatkowa</div>
+
+    <div class="display-label">wartosc_netto</div>
+    <div class="display-field">@Model.wartosc_netto</div>
+
+    <div class="display-label">numer_ot</div>
+    <div class="display-field">@Model.numer_ot</div>
+
+    <div class="display-label">nr_id_sys_zew</div>
+    <div class="display-field">@Model.nr_id_sys_zew</div>
+
+    <div class="display-label">cd_dvd</div>
+    <div class="display-field">@Model.cd_dvd</div>
+
+    <div class="display-label">karta_sieciowa</div>
+    <div class="display-field">@Model.karta_sieciowa</div>
+
+    <div class="display-label">adres_ip</div>
+    <div class="display-field">@Model.adres_ip</div>
+
+    <div class="display-label">zegar_cpu</div>
+    <div class="display-field">@Model.zegar_cpu</div>
+
+    <div class="display-label">ilosc_proc</div>
+    <div class="display-field">@Model.ilosc_proc</div>
+
+    <div class="display-label">ilosc_ram</div>
+    <div class="display-field">@Model.ilosc_ram</div>
+
+    <div class="display-label">rozmiar_hdd</div>
+    <div class="display-field">@Model.rozmiar_hdd</div>
+
+    <div class="display-label">nazwa_monitora</div>
+    <div class="display-field">@Model.nazwa_monitora</div>
+
+    <div class="display-label">rozmiar_monitora</div>
+    <div class="display-field">@Model.rozmiar_monitora</div>
+
+    <div class="display-label">model_procesora</div>
+    <div class="display-field">@Model.model_procesora</div>
+
+    <div class="display-label">model_komputera</div>
+    <div class="display-field">@Model.model_komputera</div>
+
+    <div class="display-label">wlascicielId</div>
+    <div class="display-field">@Model.wlascicielId</div>
+
+    <div class="display-label">typ_komputera</div>
+    <div class="display-field">@Model.typ_komputera</div>
+
+    <div class="display-label">Uzytkownik</div>
+    <div class="display-field">@Html.DisplayTextFor(_ => Model.Uzytkownik).ToString()</div>
+
+    <div class="display-label">Lokaliacja</div>
+    <div class="display-field">@Html.DisplayTextFor(_ => Model.Lokaliacja).ToString()</div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+
+

@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CompanyOrgModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CompanyOrgEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="jednostka_organizacyjna" EntityType="CompanyOrgModel.jednostka_organizacyjna" />
+    <EntitySet Name="komputer" EntityType="CompanyOrgModel.komputer" />
+    <EntitySet Name="lokalizacja" EntityType="CompanyOrgModel.lokalizacja" />
+    <EntitySet Name="uzytkownik" EntityType="CompanyOrgModel.uzytkownik" />
+    <AssociationSet Name="jednostka_organizacyjnauzytkownik" Association="CompanyOrgModel.jednostka_organizacyjnauzytkownik">
+      <End Role="jednostka_organizacyjna" EntitySet="jednostka_organizacyjna" />
+      <End Role="uzytkownik" EntitySet="uzytkownik" />
+    </AssociationSet>
+    <AssociationSet Name="lokalizacjauzytkownik" Association="CompanyOrgModel.lokalizacjauzytkownik">
+      <End Role="lokalizacja" EntitySet="lokalizacja" />
+      <End Role="uzytkownik" EntitySet="uzytkownik" />
+    </AssociationSet>
+    <AssociationSet Name="komputerlokalizacja" Association="CompanyOrgModel.komputerlokalizacja">
+      <End Role="komputer" EntitySet="komputer" />
+      <End Role="lokalizacja" EntitySet="lokalizacja" />
+    </AssociationSet>
+    <AssociationSet Name="komputeruzytkownik" Association="CompanyOrgModel.komputeruzytkownik">
+      <End Role="komputer" EntitySet="komputer" />
+      <End Role="uzytkownik" EntitySet="uzytkownik" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="jednostka_organizacyjna">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="nazwa" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="kod" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+    <Property Name="id_manager" Type="Int32" Nullable="false" />
+    <Property Name="MPK" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="id_nadrzedna" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="uzytkownik" Relationship="CompanyOrgModel.jednostka_organizacyjnauzytkownik" FromRole="jednostka_organizacyjna" ToRole="uzytkownik" />
+  </EntityType>
+  <EntityType Name="komputer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="nazwa" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="nazwa_dns" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="numer_seryjny" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="host_name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="MPK" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="szczegoly_lokalizacji" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="nr_inwentarzowy" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="wartosc_poczatkowa" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="wartosc_netto" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="numer_ot" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="typ_komputera" Type="Int32" Nullable="false" />
+    <Property Name="nr_id_system_zew" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="cd_dvd" Type="Boolean" />
+    <Property Name="karta_sieciowa" Type="Boolean" />
+    <Property Name="adres_ip" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="zegar_cpu" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ilosc_proc" Type="Int32" DefaultValue="1" />
+    <Property Name="ilosc_ram" Type="Int32" />
+    <Property Name="rozmiar_hdd" Type="String" Nullable="false" Unicode="true" FixedLength="false" MaxLength="50" />
+    <Property Name="rozmiar_monitora" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="nazwa_monitora" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="model_procesora" Type="Int32" Nullable="false" />
+    <Property Name="model_komputera" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="lokalizacja" Relationship="CompanyOrgModel.komputerlokalizacja" FromRole="komputer" ToRole="lokalizacja" />
+    <Property Type="Int32" Name="lokalizacjaId" Nullable="false" />
+    <NavigationProperty Name="uzytkownik" Relationship="CompanyOrgModel.komputeruzytkownik" FromRole="komputer" ToRole="uzytkownik" />
+    <Property Type="Int32" Name="wlascicielID" Nullable="false" />
+  </EntityType>
+  <EntityType Name="lokalizacja">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ulica" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="miasto" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="kod_pocztowy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="pokoj" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="uzytkownik" Relationship="CompanyOrgModel.lokalizacjauzytkownik" FromRole="lokalizacja" ToRole="uzytkownik" />
+    <NavigationProperty Name="komputer" Relationship="CompanyOrgModel.komputerlokalizacja" FromRole="lokalizacja" ToRole="komputer" />
+  </EntityType>
+  <EntityType Name="uzytkownik">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="nazwisko" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="imie" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="NRE" Type="String" Nullable="false" MaxLength="25" Unicode="true" FixedLength="false" />
+    <Property Name="drugie_imie" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+    <Property Name="login_AD" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="typ_kontaktu" Type="Int32" Nullable="false" />
+    <Property Name="typ_dostepu" Type="Int32" Nullable="false" />
+    <Property Name="stanowisko" Type="Int32" />
+    <Property Name="AWiZ" Type="Boolean" />
+    <Property Name="delegacja_akceptacji" Type="Int32" />
+    <Property Name="tel_kom" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="tel_stac" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="email" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+    <Property Name="MPK" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="jednostka_organizacyjna" Relationship="CompanyOrgModel.jednostka_organizacyjnauzytkownik" FromRole="uzytkownik" ToRole="jednostka_organizacyjna" />
+    <Property Type="Int32" Name="jednostka_organizacyjnaID_JO" Nullable="false" />
+    <NavigationProperty Name="lokalizacja" Relationship="CompanyOrgModel.lokalizacjauzytkownik" FromRole="uzytkownik" ToRole="lokalizacja" />
+    <Property Type="Int32" Name="lokalizacjaId" Nullable="false" />
+    <NavigationProperty Name="komputer" Relationship="CompanyOrgModel.komputeruzytkownik" FromRole="uzytkownik" ToRole="komputer" />
+  </EntityType>
+  <Association Name="jednostka_organizacyjnauzytkownik">
+    <End Type="CompanyOrgModel.jednostka_organizacyjna" Role="jednostka_organizacyjna" Multiplicity="1" />
+    <End Type="CompanyOrgModel.uzytkownik" Role="uzytkownik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jednostka_organizacyjna">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="uzytkownik">
+        <PropertyRef Name="jednostka_organizacyjnaID_JO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="lokalizacjauzytkownik">
+    <End Type="CompanyOrgModel.lokalizacja" Role="lokalizacja" Multiplicity="1" />
+    <End Type="CompanyOrgModel.uzytkownik" Role="uzytkownik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lokalizacja">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="uzytkownik">
+        <PropertyRef Name="lokalizacjaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="komputerlokalizacja">
+    <End Type="CompanyOrgModel.komputer" Role="komputer" Multiplicity="*" />
+    <End Type="CompanyOrgModel.lokalizacja" Role="lokalizacja" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="lokalizacja">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="komputer">
+        <PropertyRef Name="lokalizacjaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="komputeruzytkownik">
+    <End Type="CompanyOrgModel.komputer" Role="komputer" Multiplicity="*" />
+    <End Type="CompanyOrgModel.uzytkownik" Role="uzytkownik" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="uzytkownik">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="komputer">
+        <PropertyRef Name="wlascicielID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,134 @@
+﻿@model CompanyOrg.Models.Uzytkownik
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Uzytkownik</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.imie)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.imie)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.nazwisko)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nazwisko)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.drugie_imie)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.drugie_imie)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.status)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.status)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.login_AD)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.login_AD)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AwiZ)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AwiZ)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.tel_kom)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tel_kom)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.tel_stac)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tel_stac)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MPK)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MPK)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.id_jednostka_organizacyjna)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_jednostka_organizacyjna)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.id_lokalizacji)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.id_lokalizacji)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.typ_kontaktu)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.typ_kontaktu)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.typ_dostepu)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.typ_dostepu)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.stanowisko)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.stanowisko)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.delegacja_akceptacji)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.delegacja_akceptacji)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NRE)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NRE)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

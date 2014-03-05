@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CompanyOrgModelStoreContainer" CdmEntityContainer="CompanyOrgEntities">
+    <EntitySetMapping Name="jednostka_organizacyjna">
+      <EntityTypeMapping TypeName="IsTypeOf(CompanyOrgModel.jednostka_organizacyjna)">
+        <MappingFragment StoreEntitySet="jednostka_organizacyjna">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+          <ScalarProperty Name="kod" ColumnName="kod" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="id_manager" ColumnName="id_manager" />
+          <ScalarProperty Name="MPK" ColumnName="MPK" />
+          <ScalarProperty Name="id_nadrzedna" ColumnName="id_nadrzedna" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="komputer">
+      <EntityTypeMapping TypeName="IsTypeOf(CompanyOrgModel.komputer)">
+        <MappingFragment StoreEntitySet="komputer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+          <ScalarProperty Name="nazwa_dns" ColumnName="nazwa_dns" />
+          <ScalarProperty Name="numer_seryjny" ColumnName="numer_seryjny" />
+          <ScalarProperty Name="host_name" ColumnName="host_name" />
+          <ScalarProperty Name="MPK" ColumnName="MPK" />
+          <ScalarProperty Name="szczegoly_lokalizacji" ColumnName="szczegoly_lokalizacji" />
+          <ScalarProperty Name="nr_inwentarzowy" ColumnName="nr_inwentarzowy" />
+          <ScalarProperty Name="wartosc_poczatkowa" ColumnName="wartosc_poczatkowa" />
+          <ScalarProperty Name="wartosc_netto" ColumnName="wartosc_netto" />
+          <ScalarProperty Name="numer_ot" ColumnName="numer_ot" />
+          <ScalarProperty Name="typ_komputera" ColumnName="typ_komputera" />
+          <ScalarProperty Name="nr_id_system_zew" ColumnName="nr_id_system_zew" />
+          <ScalarProperty Name="cd_dvd" ColumnName="cd_dvd" />
+          <ScalarProperty Name="karta_sieciowa" ColumnName="karta_sieciowa" />
+          <ScalarProperty Name="adres_ip" ColumnName="adres_ip" />
+          <ScalarProperty Name="zegar_cpu" ColumnName="zegar_cpu" />
+          <ScalarProperty Name="ilosc_proc" ColumnName="ilosc_proc" />
+          <ScalarProperty Name="ilosc_ram" ColumnName="ilosc_ram" />
+          <ScalarProperty Name="rozmiar_hdd" ColumnName="rozmiar_hdd" />
+          <ScalarProperty Name="rozmiar_monitora" ColumnName="rozmiar_monitora" />
+          <ScalarProperty Name="nazwa_monitora" ColumnName="nazwa_monitora" />
+          <ScalarProperty Name="model_procesora" ColumnName="model_procesora" />
+          <ScalarProperty Name="model_komputera" ColumnName="model_komputera" />
+          <ScalarProperty Name="lokalizacjaId" ColumnName="lokalizacjaId" />
+          <ScalarProperty Name="wlascicielID" ColumnName="wlascicielID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lokalizacja">
+      <EntityTypeMapping TypeName="IsTypeOf(CompanyOrgModel.lokalizacja)">
+        <MappingFragment StoreEntitySet="lokalizacja">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ulica" ColumnName="ulica" />
+          <ScalarProperty Name="miasto" ColumnName="miasto" />
+          <ScalarProperty Name="kod_pocztowy" ColumnName="kod_pocztowy" />
+          <ScalarProperty Name="pokoj" ColumnName="pokoj" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="uzytkownik">
+      <EntityTypeMapping TypeName="IsTypeOf(CompanyOrgModel.uzytkownik)">
+        <MappingFragment StoreEntitySet="uzytkownik">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+          <ScalarProperty Name="imie" ColumnName="imie" />
+          <ScalarProperty Name="NRE" ColumnName="NRE" />
+          <ScalarProperty Name="drugie_imie" ColumnName="drugie_imie" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="login_AD" ColumnName="login_AD" />
+          <ScalarProperty Name="typ_kontaktu" ColumnName="typ_kontaktu" />
+          <ScalarProperty Name="typ_dostepu" ColumnName="typ_dostepu" />
+          <ScalarProperty Name="stanowisko" ColumnName="stanowisko" />
+          <ScalarProperty Name="AWiZ" ColumnName="AWiZ" />
+          <ScalarProperty Name="delegacja_akceptacji" ColumnName="delegacja_akceptacji" />
+          <ScalarProperty Name="tel_kom" ColumnName="tel_kom" />
+          <ScalarProperty Name="tel_stac" ColumnName="tel_stac" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="MPK" ColumnName="MPK" />
+          <ScalarProperty Name="jednostka_organizacyjnaID_JO" ColumnName="jednostka_organizacyjnaID_JO" />
+          <ScalarProperty Name="lokalizacjaId" ColumnName="lokalizacjaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

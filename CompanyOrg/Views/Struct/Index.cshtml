@@ -1,0 +1,63 @@
+@model IEnumerable<CompanyOrg.Models.JednostkaOrg>
+
+@using GridMvc.Html
+
+@{
+    ViewBag.Title = "Index Struktury Organizacyjnej";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<!--table>
+    <tr>
+        <th></th>
+        <th>
+            nazwa
+        </th>
+        <th>
+            kod
+        </th>
+        <th>
+            status
+        </th>
+        <th>
+            id_manager
+        </th>
+        <th>
+            MPK
+        </th>
+        <th>
+            id_nadrzedna
+        </th>
+        <th>
+            uzytkownik
+        </th>
+    </tr>
+
+
+</table-->
+
+
+
+@{
+    Layout = null;
+}
+
+<h1>Grid.MVC</h1>
+    <hr />
+    <div style="width:500px;">
+       
+            @Html.Grid(Model).Columns(columns => 
+        {
+            columns.Add(c => c.nazwa).Titled("nazwa").Filterable(true);
+            columns.Add(c => c.kod).Titled("kod").Filterable(true);
+            columns.Add(c => c.MPK).Titled("MPK").Filterable(false);
+           
+        }).WithPaging(3).Sortable(true)
+        
+        
+
+    </div>

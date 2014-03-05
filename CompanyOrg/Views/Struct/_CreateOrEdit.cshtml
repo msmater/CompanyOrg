@@ -1,0 +1,53 @@
+@model CompanyOrg.Models.JednostkaOrg
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.nazwa)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.nazwa)
+    @Html.ValidationMessageFor(model => model.nazwa)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.kod)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.kod)
+    @Html.ValidationMessageFor(model => model.kod)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.status)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.status)
+    @Html.ValidationMessageFor(model => model.status)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.id_manager)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.id_manager)
+    @Html.ValidationMessageFor(model => model.id_manager)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.MPK)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.MPK)
+    @Html.ValidationMessageFor(model => model.MPK)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.id_nadrzedna)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.id_nadrzedna)
+    @Html.ValidationMessageFor(model => model.id_nadrzedna)
+</div>
+
